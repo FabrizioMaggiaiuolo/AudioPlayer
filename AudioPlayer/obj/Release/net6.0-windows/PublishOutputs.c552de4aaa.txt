@@ -1,0 +1,13 @@
+C:\Users\fa_mg\Desktop\New folder\AudioPlayer.exe
+C:\Users\fa_mg\Desktop\New folder\AudioPlayer.dll
+C:\Users\fa_mg\Desktop\New folder\AudioPlayer.deps.json
+C:\Users\fa_mg\Desktop\New folder\AudioPlayer.runtimeconfig.json
+C:\Users\fa_mg\Desktop\New folder\AudioPlayer.pdb
+C:\Users\fa_mg\Desktop\New folder\aa\AudioPlayer.resources.dll
+C:\Users\fa_mg\Desktop\New folder\NAudio.dll
+C:\Users\fa_mg\Desktop\New folder\NAudio.Asio.dll
+C:\Users\fa_mg\Desktop\New folder\NAudio.Core.dll
+C:\Users\fa_mg\Desktop\New folder\NAudio.Midi.dll
+C:\Users\fa_mg\Desktop\New folder\NAudio.Wasapi.dll
+C:\Users\fa_mg\Desktop\New folder\NAudio.WinForms.dll
+C:\Users\fa_mg\Desktop\New folder\NAudio.WinMM.dll
