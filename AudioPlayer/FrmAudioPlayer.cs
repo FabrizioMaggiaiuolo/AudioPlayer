@@ -35,9 +35,7 @@ namespace AudioPlayer
                 waveOut = new WaveOutEvent();
                 waveOut.Init(audioFile);
 
-                waveOut.Volume = (float)0.5;
-
-                txtVolume.Text = waveOut.Volume.ToString();
+                txtVolume.Text = "50";
             }
 
             openFileDialog.Dispose();
@@ -69,17 +67,43 @@ namespace AudioPlayer
 
         private void txtVolume_TextChanged(object sender, EventArgs e)
         {
-            waveOut.Volume = float.Parse(txtVolume.Text);
+            if(waveOut != null)
+            {
+                waveOut.Volume = float.Parse(txtVolume.Text) / 100;
+            }
+            
         }
 
         private void btnUp_Click(object sender, EventArgs e)
         {
-            txtVolume.Text = (float.Parse(txtVolume.Text) + 0.1).ToString();
+            if(waveOut != null && waveOut.Volume + 0.05f < 1)
+            {
+                txtVolume.Text = (float.Parse(txtVolume.Text) + 5).ToString();
+            }
+            else
+            {
+                if (waveOut != null && waveOut.Volume < 1 && waveOut.Volume > 0.95)
+                {
+                    txtVolume.Text = "100";
+                }
+            }
+
+            
         }
 
         private void btnDown_Click(object sender, EventArgs e)
         {
-            txtVolume.Text = (float.Parse(txtVolume.Text) - 0.1).ToString();
+            if (waveOut != null && waveOut.Volume - 0.05f > 0)
+            {
+                txtVolume.Text = (float.Parse(txtVolume.Text) - 5).ToString();
+            }
+            else
+            {
+                if(waveOut != null && waveOut.Volume < 0.05 && waveOut.Volume > 0)
+                {
+                    txtVolume.Text = "0";
+                }
+            }
         }
 
         private void FrmAudioPlayer_Load(object sender, EventArgs e)

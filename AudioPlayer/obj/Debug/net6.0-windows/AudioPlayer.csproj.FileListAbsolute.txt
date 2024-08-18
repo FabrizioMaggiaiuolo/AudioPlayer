@@ -26,3 +26,4 @@ C:\Users\fa_mg\Desktop\P\code\C#\AudioPlayer\AudioPlayer\obj\Debug\net6.0-window
 C:\Users\fa_mg\Desktop\P\code\C#\AudioPlayer\AudioPlayer\obj\Debug\net6.0-windows\AudioPlayer.pdb
 C:\Users\fa_mg\Desktop\P\code\C#\AudioPlayer\AudioPlayer\obj\Debug\net6.0-windows\AudioPlayer.genruntimeconfig.cache
 C:\Users\fa_mg\Desktop\P\code\C#\AudioPlayer\AudioPlayer\obj\Debug\net6.0-windows\ref\AudioPlayer.dll
+C:\Users\fa_mg\Desktop\P\code\C#\AudioPlayer\AudioPlayer\obj\Debug\net6.0-windows\AudioPlayer.sourcelink.json
