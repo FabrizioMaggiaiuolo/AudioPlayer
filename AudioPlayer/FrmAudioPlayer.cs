@@ -29,7 +29,7 @@ namespace AudioPlayer
                 audioFile?.Dispose();
 
                 string filePath = openFileDialog.FileName;
-                lblName.Text = filePath;
+                lblName.Text = filePath.Substring(filePath.LastIndexOf("\\")+1);
 
                 audioFile = new AudioFileReader(filePath);
                 waveOut = new WaveOutEvent();
@@ -37,7 +37,7 @@ namespace AudioPlayer
 
                 txtVolume.Text = "50";
             }
-
+            
             openFileDialog.Dispose();
         }
         private void btnPlay_Click(object sender, EventArgs e)
