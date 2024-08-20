@@ -40,6 +40,7 @@
             btnUp = new Button();
             btnNext = new Button();
             btnPrev = new Button();
+            lstFiles = new ListBox();
             SuspendLayout();
             // 
             // btnPlay
@@ -115,10 +116,17 @@
             btnPrev.UseVisualStyleBackColor = true;
             btnPrev.Click += btnPrev_Click;
             // 
+            // lstFiles
+            // 
+            resources.ApplyResources(lstFiles, "lstFiles");
+            lstFiles.FormattingEnabled = true;
+            lstFiles.Name = "lstFiles";
+            // 
             // FrmAudioPlayer
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(lstFiles);
             Controls.Add(btnPrev);
             Controls.Add(btnNext);
             Controls.Add(btnUp);
@@ -149,5 +157,6 @@
         private Button btnUp;
         private Button btnNext;
         private Button btnPrev;
+        private ListBox lstFiles;
     }
 }
