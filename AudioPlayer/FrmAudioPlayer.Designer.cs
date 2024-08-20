@@ -38,6 +38,8 @@
             txtVolume = new TextBox();
             btnDown = new Button();
             btnUp = new Button();
+            btnNext = new Button();
+            btnPrev = new Button();
             SuspendLayout();
             // 
             // btnPlay
@@ -64,6 +66,7 @@
             // lblName
             // 
             resources.ApplyResources(lblName, "lblName");
+            lblName.AutoEllipsis = true;
             lblName.Name = "lblName";
             // 
             // btnOpen
@@ -98,10 +101,26 @@
             btnUp.UseVisualStyleBackColor = true;
             btnUp.Click += btnUp_Click;
             // 
+            // btnNext
+            // 
+            resources.ApplyResources(btnNext, "btnNext");
+            btnNext.Name = "btnNext";
+            btnNext.UseVisualStyleBackColor = true;
+            btnNext.Click += btnNext_Click;
+            // 
+            // btnPrev
+            // 
+            resources.ApplyResources(btnPrev, "btnPrev");
+            btnPrev.Name = "btnPrev";
+            btnPrev.UseVisualStyleBackColor = true;
+            btnPrev.Click += btnPrev_Click;
+            // 
             // FrmAudioPlayer
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnPrev);
+            Controls.Add(btnNext);
             Controls.Add(btnUp);
             Controls.Add(btnDown);
             Controls.Add(txtVolume);
@@ -128,5 +147,7 @@
         private TextBox txtVolume;
         private Button btnDown;
         private Button btnUp;
+        private Button btnNext;
+        private Button btnPrev;
     }
 }

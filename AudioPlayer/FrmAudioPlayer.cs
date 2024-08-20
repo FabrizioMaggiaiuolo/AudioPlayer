@@ -8,6 +8,8 @@ namespace AudioPlayer
         private WaveOutEvent waveOut;
         private AudioFileReader audioFile;
         private OpenFileDialog openFileDialog;
+        private string[] filesPaths;
+        private int indexFilesPaths;
 
 
         public FrmAudioPlayer()
@@ -19,26 +21,31 @@ namespace AudioPlayer
             btnStop_Click(sender, e);
 
             openFileDialog = new OpenFileDialog();
-
+            openFileDialog.Multiselect = true;
             openFileDialog.Filter = "Audio Files (*.wav;*.mp3)|*.wav;*.mp3";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-
-                waveOut?.Dispose();
-                audioFile?.Dispose();
-
-                string filePath = openFileDialog.FileName;
-                lblName.Text = filePath.Substring(filePath.LastIndexOf("\\")+1);
-
-                audioFile = new AudioFileReader(filePath);
-                waveOut = new WaveOutEvent();
-                waveOut.Init(audioFile);
-
-                txtVolume.Text = "50";
+                filesPaths = openFileDialog.FileNames;
+                indexFilesPaths = 0;
+                ChargeSong();
             }
-            
+
             openFileDialog.Dispose();
+        }
+
+        private void ChargeSong()
+        {
+            waveOut?.Dispose();
+            audioFile?.Dispose();
+
+            lblName.Text = filesPaths[indexFilesPaths].Substring(filesPaths[indexFilesPaths].LastIndexOf("\\") + 1);
+
+            audioFile = new AudioFileReader(filesPaths[indexFilesPaths]);
+            waveOut = new WaveOutEvent();
+            waveOut.Init(audioFile);
+
+            txtVolume.Text = "50";
         }
         private void btnPlay_Click(object sender, EventArgs e)
         {
@@ -65,18 +72,38 @@ namespace AudioPlayer
             }
         }
 
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if(filesPaths != null && indexFilesPaths +1 < filesPaths.Length)
+            {
+                indexFilesPaths += 1;
+                ChargeSong();
+                waveOut.Play();
+            }
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            if(filesPaths != null && indexFilesPaths - 1 > 0)
+            {
+                indexFilesPaths -= 1;
+                ChargeSong();
+                waveOut.Play();
+            }
+        }
+
         private void txtVolume_TextChanged(object sender, EventArgs e)
         {
-            if(waveOut != null)
+            if (waveOut != null)
             {
                 waveOut.Volume = float.Parse(txtVolume.Text) / 100;
             }
-            
+
         }
 
         private void btnUp_Click(object sender, EventArgs e)
         {
-            if(waveOut != null && waveOut.Volume + 0.05f < 1)
+            if (waveOut != null && waveOut.Volume + 0.05f < 1)
             {
                 txtVolume.Text = (float.Parse(txtVolume.Text) + 5).ToString();
             }
@@ -88,7 +115,7 @@ namespace AudioPlayer
                 }
             }
 
-            
+
         }
 
         private void btnDown_Click(object sender, EventArgs e)
@@ -99,7 +126,7 @@ namespace AudioPlayer
             }
             else
             {
-                if(waveOut != null && waveOut.Volume < 0.05 && waveOut.Volume > 0)
+                if (waveOut != null && waveOut.Volume < 0.05 && waveOut.Volume > 0)
                 {
                     txtVolume.Text = "0";
                 }
@@ -108,7 +135,9 @@ namespace AudioPlayer
 
         private void FrmAudioPlayer_Load(object sender, EventArgs e)
         {
-            
+
         }
+
+        
     }
 }
