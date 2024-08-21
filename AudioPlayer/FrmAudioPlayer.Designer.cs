@@ -41,6 +41,12 @@
             btnNext = new Button();
             btnPrev = new Button();
             lstFiles = new ListBox();
+            menuStrip1 = new MenuStrip();
+            optionsToolStripMenuItem = new ToolStripMenuItem();
+            orderToolStripMenuItem = new ToolStripMenuItem();
+            ascendingToolStripMenuItem = new ToolStripMenuItem();
+            descendingToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // btnPlay
@@ -121,11 +127,43 @@
             resources.ApplyResources(lstFiles, "lstFiles");
             lstFiles.FormattingEnabled = true;
             lstFiles.Name = "lstFiles";
+            lstFiles.DoubleClick += lstFiles_DoubleClick;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { optionsToolStripMenuItem });
+            resources.ApplyResources(menuStrip1, "menuStrip1");
+            menuStrip1.Name = "menuStrip1";
+            // 
+            // optionsToolStripMenuItem
+            // 
+            optionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { orderToolStripMenuItem });
+            optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            resources.ApplyResources(optionsToolStripMenuItem, "optionsToolStripMenuItem");
+            // 
+            // orderToolStripMenuItem
+            // 
+            orderToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ascendingToolStripMenuItem, descendingToolStripMenuItem });
+            orderToolStripMenuItem.Name = "orderToolStripMenuItem";
+            resources.ApplyResources(orderToolStripMenuItem, "orderToolStripMenuItem");
+            // 
+            // ascendingToolStripMenuItem
+            // 
+            ascendingToolStripMenuItem.Name = "ascendingToolStripMenuItem";
+            resources.ApplyResources(ascendingToolStripMenuItem, "ascendingToolStripMenuItem");
+            ascendingToolStripMenuItem.Click += ascendingToolStripMenuItem_Click;
+            // 
+            // descendingToolStripMenuItem
+            // 
+            descendingToolStripMenuItem.Name = "descendingToolStripMenuItem";
+            resources.ApplyResources(descendingToolStripMenuItem, "descendingToolStripMenuItem");
+            descendingToolStripMenuItem.Click += descendingToolStripMenuItem_Click;
             // 
             // FrmAudioPlayer
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(menuStrip1);
             Controls.Add(lstFiles);
             Controls.Add(btnPrev);
             Controls.Add(btnNext);
@@ -138,8 +176,11 @@
             Controls.Add(btnStop);
             Controls.Add(btnPause);
             Controls.Add(btnPlay);
+            MainMenuStrip = menuStrip1;
             Name = "FrmAudioPlayer";
             Load += FrmAudioPlayer_Load;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -158,5 +199,10 @@
         private Button btnNext;
         private Button btnPrev;
         private ListBox lstFiles;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem optionsToolStripMenuItem;
+        private ToolStripMenuItem orderToolStripMenuItem;
+        private ToolStripMenuItem ascendingToolStripMenuItem;
+        private ToolStripMenuItem descendingToolStripMenuItem;
     }
 }

@@ -10,7 +10,6 @@ namespace AudioPlayer
         private OpenFileDialog openFileDialog;
         private string[] filesPaths;
         private int indexFilesPaths;
-        private bool isManualNext;
 
 
         public FrmAudioPlayer()
@@ -23,19 +22,14 @@ namespace AudioPlayer
 
             openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = true;
-            openFileDialog.Filter = "Audio Files (*.wav;*.mp3;*.m4a)|*.wav;*.mp3;*.m4a" ;
+            openFileDialog.Filter = "Audio Files (*.wav;*.mp3;*.m4a)|*.wav;*.mp3;*.m4a";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 filesPaths = openFileDialog.FileNames;
                 indexFilesPaths = 0;
                 ChargeSong();
-                lstFiles.Items.Clear();
-
-                foreach(string filePath in filesPaths)
-                {
-                    lstFiles.Items.Add(filePath.Substring(filePath.LastIndexOf("\\") + 1));
-                }
+                UpdateListBoxFiles();
             }
 
             openFileDialog.Dispose();
@@ -54,6 +48,15 @@ namespace AudioPlayer
             waveOut.PlaybackStopped += NextSongWhenItEnds;
 
             txtVolume.Text = "50";
+        }
+
+        private void UpdateListBoxFiles()
+        {
+            lstFiles.Items.Clear();
+            foreach (string filePath in filesPaths)
+            {
+                lstFiles.Items.Add(filePath.Substring(filePath.LastIndexOf("\\") + 1));
+            }
         }
 
         private void NextSongWhenItEnds(object sender, StoppedEventArgs e)
@@ -102,16 +105,16 @@ namespace AudioPlayer
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if(filesPaths != null && indexFilesPaths < filesPaths.Length)
+            if (filesPaths != null && indexFilesPaths < filesPaths.Length)
             {
                 btnStop_Click(sender, e);
-                NextSongWhenItEnds(sender, new StoppedEventArgs());
+                NextSongWhenItEnds(waveOut, new StoppedEventArgs());
             }
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-            if(filesPaths != null && indexFilesPaths > 0)
+            if (filesPaths != null && indexFilesPaths > 0)
             {
                 btnStop_Click(sender, e);
                 indexFilesPaths -= 1;
@@ -166,6 +169,34 @@ namespace AudioPlayer
 
         }
 
-        
+        private void lstFiles_DoubleClick(object sender, EventArgs e)
+        {
+            if (lstFiles.Items.Count > 0)
+            {
+                btnStop_Click(sender, e);
+                indexFilesPaths = lstFiles.SelectedIndex;
+                ChargeSong();
+                waveOut.Play();
+            }
+        }
+
+        private void ascendingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(filesPaths != null)
+            {
+                Array.Sort(filesPaths);
+                UpdateListBoxFiles();
+            }          
+        }
+
+        private void descendingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(filesPaths != null)
+            {
+                Array.Sort(filesPaths);
+                Array.Reverse(filesPaths);
+                UpdateListBoxFiles();
+            }           
+        }
     }
 }
