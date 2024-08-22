@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\fa_mg\\Desktop\\P\\code\\C#\\AudioPlayer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EBC8641C-6348-4B8D-8795-DAD4EBE0E61B}|AudioPlayer\\AudioPlayer.csproj|c:\\users\\fa_mg\\desktop\\p\\code\\c#\\audioplayer\\audioplayer\\frmaudioplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{EBC8641C-6348-4B8D-8795-DAD4EBE0E61B}|AudioPlayer\\AudioPlayer.csproj|solutionrelative:audioplayer\\frmaudioplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EBC8641C-6348-4B8D-8795-DAD4EBE0E61B}|AudioPlayer\\AudioPlayer.csproj|c:\\users\\fa_mg\\desktop\\p\\code\\c#\\audioplayer\\audioplayer\\frmaudioplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EBC8641C-6348-4B8D-8795-DAD4EBE0E61B}|AudioPlayer\\AudioPlayer.csproj|solutionrelative:audioplayer\\frmaudioplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBC8641C-6348-4B8D-8795-DAD4EBE0E61B}|AudioPlayer\\AudioPlayer.csproj|c:\\users\\fa_mg\\desktop\\p\\code\\c#\\audioplayer\\audioplayer\\frmaudioplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{EBC8641C-6348-4B8D-8795-DAD4EBE0E61B}|AudioPlayer\\AudioPlayer.csproj|solutionrelative:audioplayer\\frmaudioplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,25 +26,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "FrmAudioPlayer.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\fa_mg\\Desktop\\P\\code\\C#\\AudioPlayer\\AudioPlayer\\FrmAudioPlayer.cs",
               "RelativeDocumentMoniker": "AudioPlayer\\FrmAudioPlayer.cs",
               "ToolTip": "C:\\Users\\fa_mg\\Desktop\\P\\code\\C#\\AudioPlayer\\AudioPlayer\\FrmAudioPlayer.cs [Dise\u00F1o]",
               "RelativeToolTip": "AudioPlayer\\FrmAudioPlayer.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-20T19:07:06.986Z",
+              "WhenOpened": "2024-08-21T23:41:54.209Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "FrmAudioPlayer.cs",
               "DocumentMoniker": "C:\\Users\\fa_mg\\Desktop\\P\\code\\C#\\AudioPlayer\\AudioPlayer\\FrmAudioPlayer.cs",
               "RelativeDocumentMoniker": "AudioPlayer\\FrmAudioPlayer.cs",
               "ToolTip": "C:\\Users\\fa_mg\\Desktop\\P\\code\\C#\\AudioPlayer\\AudioPlayer\\FrmAudioPlayer.cs",
               "RelativeToolTip": "AudioPlayer\\FrmAudioPlayer.cs",
-              "ViewState": "AQIAAKQAAAAAAAAAAAAUwBIAAAA6AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAANAAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-14T20:44:58.889Z",
               "EditorCaption": ""

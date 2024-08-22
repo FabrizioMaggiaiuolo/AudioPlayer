@@ -10,12 +10,16 @@ namespace AudioPlayer
         private OpenFileDialog openFileDialog;
         private string[] filesPaths;
         private int indexFilesPaths;
+        private Task time;
 
 
         public FrmAudioPlayer()
         {
             InitializeComponent();
+
         }
+
+
         private void btnOpen_Click(object sender, EventArgs e)
         {
             btnStop_Click(sender, e);
@@ -31,7 +35,7 @@ namespace AudioPlayer
                 ChargeSong();
                 UpdateListBoxFiles();
             }
-
+            
             openFileDialog.Dispose();
         }
 
@@ -182,21 +186,29 @@ namespace AudioPlayer
 
         private void ascendingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(filesPaths != null)
+            if (filesPaths != null)
             {
                 Array.Sort(filesPaths);
                 UpdateListBoxFiles();
-            }          
+            }
         }
 
         private void descendingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(filesPaths != null)
+            if (filesPaths != null)
             {
                 Array.Sort(filesPaths);
                 Array.Reverse(filesPaths);
                 UpdateListBoxFiles();
-            }           
+            }
+        }
+
+        private void trackBar_Scroll(object sender, EventArgs e)
+        {
+            if (audioFile != null)
+            {
+                audioFile.CurrentTime = (audioFile.TotalTime / TimeSpan.FromSeconds(trackBar.Maximum)) * TimeSpan.FromSeconds(trackBar.Value);
+            }
         }
     }
 }

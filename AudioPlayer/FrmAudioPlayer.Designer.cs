@@ -46,7 +46,9 @@
             orderToolStripMenuItem = new ToolStripMenuItem();
             ascendingToolStripMenuItem = new ToolStripMenuItem();
             descendingToolStripMenuItem = new ToolStripMenuItem();
+            trackBar = new TrackBar();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)trackBar).BeginInit();
             SuspendLayout();
             // 
             // btnPlay
@@ -159,10 +161,18 @@
             resources.ApplyResources(descendingToolStripMenuItem, "descendingToolStripMenuItem");
             descendingToolStripMenuItem.Click += descendingToolStripMenuItem_Click;
             // 
+            // trackBar
+            // 
+            resources.ApplyResources(trackBar, "trackBar");
+            trackBar.Maximum = 1000;
+            trackBar.Name = "trackBar";
+            trackBar.Scroll += trackBar_Scroll;
+            // 
             // FrmAudioPlayer
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(trackBar);
             Controls.Add(menuStrip1);
             Controls.Add(lstFiles);
             Controls.Add(btnPrev);
@@ -181,6 +191,7 @@
             Load += FrmAudioPlayer_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)trackBar).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -204,5 +215,6 @@
         private ToolStripMenuItem orderToolStripMenuItem;
         private ToolStripMenuItem ascendingToolStripMenuItem;
         private ToolStripMenuItem descendingToolStripMenuItem;
+        private TrackBar trackBar;
     }
 }
